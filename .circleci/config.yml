@@ -12,12 +12,6 @@ jobs:
       - run:
           name: Test
           command: mvn test
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      - run: gradle clean build package
       
       - setup_remote_docker:
           version: 19.03.13
